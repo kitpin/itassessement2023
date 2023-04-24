@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+        // define the data to be displayed in the table
+const data = [
+  { sn: 1, name: "Ayesha", image: "https://example.com/image1.jpg" },
+  { sn: 2, name: "Aanika", image: "https://example.com/image2.jpg" },
+  { sn: 3, name: "Mridu", image: "https://example.com/image3.jpg" },
+  { sn: 4, name: "Bijiya", image: "https://example.com/image4.jpg" },
+];
+
+// create a table element
+const table = document.createElement("table");
+
+// create the table header row
+const headerRow = document.createElement("tr");
+
+// create the S.N column header cell
+const snHeader = document.createElement("th");
+snHeader.innerHTML = "S.N";
+headerRow.appendChild(snHeader);
+
+// create the Name column header cell
+const nameHeader = document.createElement("th");
+nameHeader.innerHTML = "Name";
+headerRow.appendChild(nameHeader);
+
+// create the Image column header cell
+const imageHeader = document.createElement("th");
+imageHeader.innerHTML = "Image";
+headerRow.appendChild(imageHeader);
+
+// append the header row to the table
+table.appendChild(headerRow);
+
+// loop through the data and create a row for each item
+for (let i = 0; i < data.length; i++) {
+  const item = data[i];
+
+  // create a row element
+  const row = document.createElement("tr");
+
+  // add a class to alternate the background color of data rows
+  if (i % 2 === 1) {
+    row.classList.add("alt");
+    document.write(`<tr style="background-color: #f2f2f2;"><td>${data[i].name}</td><td>${data[i].age}</td><td>${data[i].city}</td></tr>`);
+  } else {
+    document.write(`<tr style="background-color: #ddd;"><td>${data[i].name}</td><td>${data[i].age}</td><td>${data[i].city}</td></tr>`);
+  }
+
+  // create the S.N cell and add content
+  const snCell = document.createElement("td");
+  snCell.innerHTML = item.sn;
+  row.appendChild(snCell);
+
+  // create the Name cell and add content
+  const nameCell = document.createElement("td");
+  nameCell.innerHTML = item.name;
+  row.appendChild(nameCell);
+
+  // create the Image cell and add an image
+  const imageCell = document.createElement("td");
+  const image = document.createElement("img");
+  image.src = item.image;
+  imageCell.appendChild(image);
+  row.appendChild(imageCell);
+
+  // append the row to the table
+  table.appendChild(row);
+}
+
+// add the table to the document body
+document.body.appendChild(table);
+
+</script>
+</body></html>
